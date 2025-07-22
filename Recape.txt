@@ -1,0 +1,60 @@
+ScrapJob Project Recap
+======================
+
+Overview:
+---------
+ScrapJob is a Next.js (App Router) application designed to streamline and supercharge the job search process. It combines job aggregation with AI-powered tools to help users find suitable opportunities and optimize their resumes for better job matching.
+
+Key Features:
+-------------
+1. **Centralized Job Scraper**
+   - Fetches job listings from a Google Sheet (can be replaced with any REST API or data source).
+   - Dynamic filtering and CSV export.
+   - Smart UI actions for analyzing/applying to jobs.
+
+2. **AI-Powered ATS Checker**
+   - Users upload or paste their resume (supports PDF, DOCX, TXT).
+   - Compares resume/profile to a job description using AI (Google Gemini via Genkit).
+   - Provides a match score, skill gap analysis, and AI-generated job summary.
+
+3. **AI Resume Enhancer**
+   - One-click AI-powered resume rewrite and formatting.
+   - Improves grammar, structure, and professionalism without inventing new information.
+
+4. **Authentication & User Data**
+   - Google sign-in (Firebase Auth by default, but can be swapped for any provider).
+   - User data (usage counts, resume links) stored in Firestore (can be replaced with any DB).
+
+5. **Subscription API**
+   - Users can subscribe with email (stored in Firestore, but logic is generic and can be adapted).
+
+Tech Stack:
+-----------
+- **Framework:** Next.js 14 (App Router, TypeScript)
+- **UI:** ShadCN UI, Tailwind CSS
+- **AI:** Google Gemini via Genkit
+- **Auth/DB:** Firebase (default, but not required for hosting)
+- **Data Source:** Google Sheets (can be replaced)
+
+Architecture:
+-------------
+- `src/app/` - Next.js app directory (routes, pages, API endpoints)
+- `src/components/` - UI components (including ShadCN-based and custom components)
+- `src/ai/flows/` - AI logic for job analysis and resume enhancement
+- `src/hooks/` - Custom React hooks (auth, toast, mobile detection)
+- `src/lib/` - Utilities (Firebase, user actions, rate limiter, etc.)
+- `src/types/` - TypeScript types
+
+Deployment Flexibility:
+-----------------------
+- The app is not tightly coupled to Firebase Hosting. You can deploy it on Vercel, Netlify, AWS, or any platform that supports Next.js.
+- For authentication and database, you can swap Firebase for any other provider (e.g., Auth0, Supabase, custom backend) by updating the logic in `src/lib/firebase.ts` and related hooks.
+- The job data source (currently Google Sheets) can be replaced with any REST API or database by modifying the API route in `src/app/api/scrape/route.ts`.
+
+How to Adapt for Non-Firebase Hosting:
+--------------------------------------
+- Remove or replace Firebase-specific logic in `src/lib/firebase.ts`, `src/hooks/use-auth.tsx`, and API routes.
+- Update environment variables and deployment scripts for your chosen platform.
+- Ensure any serverless functions or API routes are compatible with your hosting provider.
+
+This recap provides a high-level understanding of the ScrapJob project, its architecture, and how to adapt it for different hosting and backend solutions. 

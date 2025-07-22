@@ -1,0 +1,27 @@
+{
+  "node": {
+    "400b5f5d7a941d4288c6ff33b37161271e1e5c8f3c": {
+      "workers": {
+        "app/(app)/ats-checker/page": {
+          "moduleId": "[project]/.next-internal/server/app/(app)/ats-checker/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/analyze-job-flow.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/ai/flows/enhance-resume-flow.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(app)/ats-checker/page": "action-browser"
+      }
+    },
+    "40580d6090e907227c9e005ed6655b7108a21950b5": {
+      "workers": {
+        "app/(app)/ats-checker/page": {
+          "moduleId": "[project]/.next-internal/server/app/(app)/ats-checker/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/analyze-job-flow.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/ai/flows/enhance-resume-flow.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(app)/ats-checker/page": "action-browser"
+      }
+    }
+  },
+  "edge": {}
+}
