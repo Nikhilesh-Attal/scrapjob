@@ -416,27 +416,6 @@ export default function AtsCheckerPage() {
 
             {fixing && <div>{fixProgress}</div>}
 
-            {enhancedResume && (
-              <div className="mt-4">
-                <h3 className="font-semibold text-lg">Enhanced Resume</h3>
-                <pre className="bg-gray-100 p-4 rounded">{enhancedResume}</pre>
-                <div className="mt-4 flex gap-2">
-                  <Button
-                    onClick={() => downloadResume(enhancedResume, 'txt')}
-                    variant="outline"
-                  >
-                    Download as .txt
-                  </Button>
-                  <Button
-                    onClick={() => downloadResume(enhancedResume, 'pdf')}
-                    variant="outline"
-                  >
-                    Download as PDF
-                  </Button>
-                </div>
-              </div>
-            )}
-
              <Card>
                 <CardHeader className="pb-2">
                     <CardTitle className="text-xl">Job Summary</CardTitle>
@@ -495,18 +474,21 @@ export default function AtsCheckerPage() {
         </Card>
       )}
 
-      {/* Enhanced Resume Box (moved to bottom) */}
+      {/* Enhanced Resume Box (moved to bottom) - SINGLE LOCATION */}
       {typeof enhancedResume === 'string' && enhancedResume.trim() !== '' && (
-        <div style={{
-          background: '#e6ffed',
-          color: '#1a3d1a',
-          padding: '20px',
-          margin: '24px 0',
-          fontSize: '15px',
-          border: '2px solid #22c55e',
-          borderRadius: '12px',
-          boxShadow: '0 2px 8px rgba(34,197,94,0.08)'
-        }}>
+        <div 
+          ref={resumeRef}
+          style={{
+            background: '#e6ffed',
+            color: '#1a3d1a',
+            padding: '20px',
+            margin: '24px 0',
+            fontSize: '15px',
+            border: '2px solid #22c55e',
+            borderRadius: '12px',
+            boxShadow: '0 2px 8px rgba(34,197,94,0.08)'
+          }}
+        >
           <div style={{ fontWeight: 700, fontSize: '1.2em', marginBottom: 8, color: '#15803d' }}>Enhanced Resume</div>
           <div style={{ fontSize: '0.95em', marginBottom: 12, color: '#166534' }}>This is your improved resume. You can download it below.</div>
           <pre style={{
